@@ -1,0 +1,49 @@
+/* Light Mode Styles */
+.root {
+    -fx-background-color: #ffffff; /* White background */
+    -fx-text-fill: #000000; /* Black text */
+}
+
+.menu-bar {
+    -fx-background-color: #e0e0e0; /* Light gray background for the menu bar */
+}
+
+.menu, .menu-item {
+    -fx-text-fill: #000000; /* Black text for menus */
+}
+
+.tool-bar {
+    -fx-background-color: #e0e0e0; /* Light gray background for the toolbar */
+}
+
+.text-field {
+    -fx-background-color: #f0f0f0; /* Light gray background for the text field */
+    -fx-text-fill: #000000; /* Black text */
+}
+
+.button {
+    -fx-background-color: #007bff; /* Blue background */
+    -fx-text-fill: #ffffff; /* White text */
+}
+
+.list-view {
+    -fx-background-color: #ffffff; /* White background for the file list */
+    -fx-text-fill: #000000; /* Black text */
+}
+
+.text-area {
+    -fx-control-inner-background: #ffffff; /* White background */
+    -fx-text-fill: #000000; /* Black text */
+    -fx-border-color: #cccccc; /* Light gray border */
+    -fx-border-width: 1px; /* Border width */
+}
+
+/* Focused State */
+.text-area:focused {
+    -fx-border-color: #cccccc; /* Light gray border when focused */
+}
+
+/* Unfocused State */
+.text-area:unfocused {
+    -fx-border-color: transparent; /* Hide border when not focused */
+}
