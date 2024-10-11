@@ -5,3 +5,5 @@ Oddělit vyhledávání slov aby to mohlo vyhledávat lépe. Udělat nějaké st
 Rozšířit komplet Appku.
 
 Upravit barvu buttnů pro každý styl.
+
+Upravit promazání listu pro soubory.
