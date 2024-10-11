@@ -6,4 +6,4 @@ Rozšířit komplet Appku.
 
 Upravit barvu buttnů pro každý styl.
 
-Upravit promazání listu pro soubory.
+Upravit promazání listu pro soubory. | - prozatím bych smazal možnost klikat na button a otevřít soubor.
