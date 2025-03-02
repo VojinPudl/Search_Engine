@@ -57,7 +57,7 @@ public class MainController {
                     + "-fx-font-size: 14px; "
                     + "-fx-background-radius: 3; "
                     + "-fx-border-width: 0;");
-            button.setOnAction(event -> OpenFile(button.getText()));
+            button.setOnAction(event -> OpenFile(s));
             items.add(button);
         }
         listView.setItems(items);
