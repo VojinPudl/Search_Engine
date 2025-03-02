@@ -48,8 +48,10 @@ public class MainController {
         listView.setItems(null);
         ObservableList<Button> items = FXCollections.observableArrayList();
         for (String s : stringArrayList) {
+            System.out.println("Přidávám do seznamu: " + s);
             Button button = new Button(s);
-            button.setStyle("-fx-background-color: grey; "
+            button.setText(s);
+            button.setStyle("-fx-background-color: transparent; "
                     + "-fx-text-fill: black; "
                     + "-fx-padding: 0 32; "
                     + "-fx-font-size: 14px; "
@@ -61,7 +63,7 @@ public class MainController {
         listView.setItems(items);
     }
 
-    public void SetRootPatch() {
+    public void SetRootPath() {
         fileList = new ArrayList<>();
         DirectoryChooser directoryChooser = new DirectoryChooser();
         directoryChooser.setTitle("Select Folder");
@@ -83,8 +85,8 @@ public class MainController {
         for (MyFile file : fileList) {
             if (Objects.equals(searchTextField.getText(), "")) break;
             try (BufferedReader fileReader = new BufferedReader(new FileReader(String.valueOf(file.getFile())))) {
+                boolean found = file.getFile().getName().contains(searchTextField.getText());
                 String line;
-                boolean found = false;
                 StringBuilder stringBuilder = new StringBuilder();
                 while ((line = fileReader.readLine()) != null) {
                     if (line.toLowerCase().contains(searchTextField.getText().toLowerCase()))
@@ -114,19 +116,18 @@ public class MainController {
                     if (file.isFile()) {
                         MyFile myFile = new MyFile(file);
                         fileList.add(myFile);
+                        System.out.println("Načítám soubor: " + myFile.getFile().getName());
                         stringArrayList.add(myFile.getFile().getName());
                     }
                 }
             }
-        } else {
-            System.out.println("Zadaná cesta neexistuje nebo není adresář.");
-        }
+        } else System.out.println("Zadaná cesta neexistuje nebo není adresář.");
 
     }
 
     public void RefreshFiles() {
-        fileList = new ArrayList<>();
-        listView = new ListView<>();
+        fileList.clear();
+        stringArrayList.clear();
         InsertFilesIntoList(RootPath, fileList);
         InsertIntoListView();
     }

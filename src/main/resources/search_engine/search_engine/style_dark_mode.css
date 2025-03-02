@@ -1,53 +1,52 @@
-/* Dark Mode Styles */
 .root {
-    -fx-background-color: #1e1e1e; /* Dark background */
+    -fx-base: #2b2b2b;
+    -fx-background: #2b2b2b;
+    -fx-control-inner-background: #3c3f41;
+    -fx-text-fill: #ffffff;
 }
 
-.menu-bar {
-    -fx-background-color: #2e2e2e; /* Dark gray background for the menu bar */
-}
-
-.menu, .menu-item {
-    -fx-text-fill: #ffffff; /* White text for menus */
-}
-
-.tool-bar {
-    -fx-background-color: #2e2e2e; /* Dark gray background for the toolbar */
-}
-
-.text-field {
-    -fx-background-color: #333333; /* Dark background for the text field */
-    -fx-text-fill: #ffffff; /* White text */
+.label {
+    -fx-text-fill: #ffffff;
 }
 
 .button {
-    -fx-background-color: #007bff; /* Blue background */
-    -fx-text-fill: #ffffff; /* White text */
+    -fx-background-color: #3c3f41;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #555555;
 }
 
-.list-view {
-    -fx-background-color: #2e2e2e; /* Dark background for the file list */
-    -fx-text-fill: #ffffff; /* White text */
+.text-field {
+    -fx-background-color: #3c3f41;
+    -fx-text-fill: #ffffff;
+    -fx-prompt-text-fill: #bbbbbb;
+    -fx-border-color: #555555;
 }
 
 .text-area {
-    -fx-control-inner-background: #2e2e2e; /* Dark background */
-    -fx-text-fill: #ffffff; /* White text */
-    -fx-border-color: #a0a0a0; /* Gray border */
-    -fx-border-width: 1px; /* Border width */
+    -fx-background-color: #3c3f41;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #555555;
 }
 
-/* Focused State */
-.text-area:focused {
-    -fx-border-color: #a0a0a0; /* Gray border when focused */
+.list-view, .table-view {
+    -fx-background-color: #3c3f41;
+    -fx-control-inner-background: #3c3f41;
+    -fx-border-color: #555555;
 }
 
-/* Unfocused State */
-.text-area:focused:not(:hover) {
-    -fx-border-color: #a0a0a0; /* Keep gray border when focused */
+.menu-bar {
+    -fx-background-color: #3c3f41;
 }
 
-/* To hide border when unfocused */
-.text-area:unfocused {
-    -fx-border-color: transparent; /* Hide border when not focused */
+.menu {
+    -fx-background-color: #3c3f41;
+}
+
+.menu-item {
+    -fx-background-color: #3c3f41;
+    -fx-text-fill: #ffffff;
+}
+
+.scroll-pane {
+    -fx-background-color: #2b2b2b;
 }
