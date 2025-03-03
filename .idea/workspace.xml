@@ -10,8 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3863b9a-6b0a-49aa-a383-bc99581ad3ef" name="Changes" comment="Search_Engine">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Search_Engine_jar/Search_Engine.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Search_Engine_jar/Search_Engine.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/search_engine/search_engine/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/search_engine/search_engine/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/search_engine/search_engine/Main_Layout.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/search_engine/search_engine/Main_Layout.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/search_engine/search_engine/style_dark_mode.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/search_engine/search_engine/style_dark_mode.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +65,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Starting_App" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="Oracle-jdk-21" />
+      <option name="ALTERNATIVE_JRE_PATH" value="liberica-21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="search_engine.search_engine.MainApplication" />
       <module name="Search_Engine" />

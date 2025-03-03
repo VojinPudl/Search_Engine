@@ -39,6 +39,8 @@ public class MainController {
         listView = new ListView<>();
     }
 
+    public boolean darkmode=false;
+
 
     public void setScene(Scene scene) {
         this.scene = scene;
@@ -85,7 +87,7 @@ public class MainController {
         for (MyFile file : fileList) {
             if (Objects.equals(searchTextField.getText(), "")) break;
             try (BufferedReader fileReader = new BufferedReader(new FileReader(String.valueOf(file.getFile())))) {
-                boolean found = file.getFile().getName().contains(searchTextField.getText());
+                boolean found = file.getFile().getName().toLowerCase().contains(searchTextField.getText());
                 String line;
                 StringBuilder stringBuilder = new StringBuilder();
                 while ((line = fileReader.readLine()) != null) {
@@ -165,6 +167,7 @@ public class MainController {
             scene.getStylesheets().clear();
             scene.getStylesheets().add(Objects.requireNonNull(getClass()
                     .getResource("/search_engine/search_engine/style_dark_mode.css")).toExternalForm());
+            darkmode=true;
         } else {
             System.out.println("Scene is not set.");
         }
@@ -175,6 +178,7 @@ public class MainController {
             scene.getStylesheets().clear();
             scene.getStylesheets().add(Objects.requireNonNull(getClass()
                     .getResource("/search_engine/search_engine/style_light_mode.css")).toExternalForm());
+            darkmode=false;
         } else {
             System.out.println("Scene is not set.");
         }
