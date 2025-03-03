@@ -53,12 +53,21 @@ public class MainController {
             System.out.println("Přidávám do seznamu: " + s);
             Button button = new Button(s);
             button.setText(s);
-            button.setStyle("-fx-background-color: transparent; "
-                    + "-fx-text-fill: black; "
-                    + "-fx-padding: 0 32; "
-                    + "-fx-font-size: 14px; "
-                    + "-fx-background-radius: 3; "
-                    + "-fx-border-width: 0;");
+            if (!darkmode) {
+                button.setStyle("-fx-background-color: transparent; "
+                        + "-fx-text-fill: black; "
+                        + "-fx-padding: 0 32; "
+                        + "-fx-font-size: 14px; "
+                        + "-fx-background-radius: 3; "
+                        + "-fx-border-width: 0;");
+            } else {
+                button.setStyle("-fx-background-color: transparent; "
+                        + "-fx-text-fill: white; "
+                        + "-fx-padding: 0 32; "
+                        + "-fx-font-size: 14px; "
+                        + "-fx-background-radius: 3; "
+                        + "-fx-border-width: 0;");
+            }
             button.setOnAction(event -> OpenFile(s));
             items.add(button);
         }
@@ -168,6 +177,8 @@ public class MainController {
             scene.getStylesheets().add(Objects.requireNonNull(getClass()
                     .getResource("/search_engine/search_engine/style_dark_mode.css")).toExternalForm());
             darkmode=true;
+            if (!fileList.isEmpty() && !stringArrayList.isEmpty())
+                RefreshFiles();
         } else {
             System.out.println("Scene is not set.");
         }
@@ -179,6 +190,8 @@ public class MainController {
             scene.getStylesheets().add(Objects.requireNonNull(getClass()
                     .getResource("/search_engine/search_engine/style_light_mode.css")).toExternalForm());
             darkmode=false;
+            if (!fileList.isEmpty() && !stringArrayList.isEmpty())
+                RefreshFiles();
         } else {
             System.out.println("Scene is not set.");
         }
