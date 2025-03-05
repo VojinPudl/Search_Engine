@@ -13,8 +13,8 @@
                         <MenuItem fx:id="refreshItem" mnemonicParsing="false" onAction="#RefreshFiles" text="Refresh" />
                         <MenuItem mnemonicParsing="false" onAction="#Close" text="Close" />
                     </Menu>
-                    <Menu mnemonicParsing="false" text="Help">
-                        <MenuItem mnemonicParsing="false" text="About" />
+                    <Menu mnemonicParsing="false" text="Commands">
+                        <MenuItem fx:id="buttonShowFullFile" mnemonicParsing="false" onAction="#ShowFullFile" text="Open File" />
                     </Menu>
                     <Menu mnemonicParsing="false" text="Style">
                         <MenuItem fx:id="darkmodeItem" mnemonicParsing="false" onAction="#SetDarkMode" text="Dark mode" />

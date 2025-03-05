@@ -11,6 +11,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c3863b9a-6b0a-49aa-a383-bc99581ad3ef" name="Changes" comment="Search_Engine">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Search_Engine_jar/Search_Engine.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Search_Engine_jar/Search_Engine.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/search_engine/search_engine/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/search_engine/search_engine/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/search_engine/search_engine/Main_Layout.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/search_engine/search_engine/Main_Layout.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +29,20 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;VojinPudl&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="e7d5c47e-9f2c-4cda-af07-11b164855e22" />
+        <option name="url" value="https://github.com/VojinPudl/Search_Engine.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -118,7 +135,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741017938145</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Search_Engine">
+      <option name="closed" value="true" />
+      <created>1741018333966</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1741018333966</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

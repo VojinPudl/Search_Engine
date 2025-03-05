@@ -2,6 +2,7 @@ package search_engine.search_engine;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
@@ -29,6 +30,7 @@ public class MainController {
     public MenuItem refreshItem;
     public MenuItem darkmodeItem;
     public MenuItem lightmodeItem;
+    public MenuItem buttonShowFullFile;
 
     ArrayList<MyFile> fileList = new ArrayList<>();
     ArrayList<String> stringArrayList = new ArrayList<>();
@@ -205,5 +207,8 @@ public class MainController {
 
     public void Close() {
         System.exit(0);
+    }
+
+    public void ShowFullFile() {
     }
 }
