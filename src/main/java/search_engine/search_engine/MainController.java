@@ -211,4 +211,8 @@ public class MainController {
 
     public void ShowFullFile() {
     }
+
+    public void SearchDynamically(KeyEvent keyEvent) {
+        SearchPressedEnter(keyEvent);
+    }
 }

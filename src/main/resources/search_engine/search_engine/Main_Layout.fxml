@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="search_engine.search_engine.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="search_engine.search_engine.MainController">
     <BorderPane prefHeight="800.0" prefWidth="800.0">
         <top>
             <VBox BorderPane.alignment="CENTER">
@@ -22,7 +22,7 @@
                     </Menu>
                 </MenuBar>
                 <ToolBar>
-                    <TextField fx:id="searchTextField" onKeyPressed="#SearchPressedEnter" prefHeight="25.0" prefWidth="266.0" />
+                    <TextField fx:id="searchTextField" onKeyPressed="#SearchDynamically" prefHeight="25.0" prefWidth="266.0" />
                     <Button fx:id="searchButton" mnemonicParsing="false" onAction="#Search" text="Search" />
                 </ToolBar>
             </VBox>

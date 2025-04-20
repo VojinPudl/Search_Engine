@@ -16,5 +16,4 @@ public class Config {
     public String getPath(){
         return "";
     }
-
 }

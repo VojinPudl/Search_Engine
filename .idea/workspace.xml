@@ -10,9 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3863b9a-6b0a-49aa-a383-bc99581ad3ef" name="Changes" comment="Search_Engine">
-      <change afterPath="$PROJECT_DIR$/src/main/java/search_engine/search_engine/Config.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/search_engine/search_engine/conf.d" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/search_engine/search_engine/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/search_engine/search_engine/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/search_engine/search_engine/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/search_engine/search_engine/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/search_engine/search_engine/Main_Layout.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/search_engine/search_engine/Main_Layout.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +152,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745171523970</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Search_Engine">
+      <option name="closed" value="true" />
+      <created>1745171929100</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1745171929100</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
