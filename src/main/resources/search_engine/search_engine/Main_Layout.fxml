@@ -3,8 +3,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="search_engine.search_engine.MainController">
-    <BorderPane prefHeight="800.0" prefWidth="800.0">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="925.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="search_engine.search_engine.MainController">
+    <BorderPane prefHeight="800.0" prefWidth="1000.0">
         <top>
             <VBox BorderPane.alignment="CENTER">
                 <MenuBar>
@@ -13,8 +13,8 @@
                         <MenuItem fx:id="refreshItem" mnemonicParsing="false" onAction="#RefreshFiles" text="Refresh" />
                         <MenuItem mnemonicParsing="false" onAction="#Close" text="Close" />
                     </Menu>
-                    <Menu mnemonicParsing="false" text="Commands">
-                        <MenuItem fx:id="buttonShowFullFile" mnemonicParsing="false" onAction="#ShowFullFile" text="Open File" />
+                    <Menu mnemonicParsing="false" text="About">
+                        <MenuItem fx:id="buttonShowFullFile" mnemonicParsing="false" onAction="#ShowFullFile" text="Info" />
                     </Menu>
                     <Menu mnemonicParsing="false" text="Style">
                         <MenuItem fx:id="darkmodeItem" mnemonicParsing="false" onAction="#SetDarkMode" text="Dark mode" />
@@ -29,8 +29,8 @@
         </top>
         <center>
             <HBox BorderPane.alignment="CENTER">
-                <ListView fx:id="listView" pickOnBounds="false" prefHeight="740.0" prefWidth="345.0" />
-                <TextArea fx:id="TextArea" editable="false" prefHeight="740.0" prefWidth="601.0" styleClass="text-area" wrapText="true" />
+                <ListView fx:id="listView" pickOnBounds="false" prefHeight="740.0" prefWidth="300.0" />
+                <TextArea fx:id="TextArea" editable="false" prefHeight="740.0" prefWidth="841.0" styleClass="text-area" wrapText="true" />
             </HBox>
         </center>
     </BorderPane>

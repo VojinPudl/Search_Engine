@@ -2,7 +2,6 @@ package search_engine.search_engine;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
@@ -13,15 +12,12 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Objects;
 
 public class MainController {
-    public static String RootPath;
+    public static String RootPath = "";
     public MenuItem setRootPathItem;
     public Button searchButton;
     public TextField searchTextField;
@@ -41,7 +37,7 @@ public class MainController {
         listView = new ListView<>();
     }
 
-    public boolean darkmode=false;
+    public static boolean darkmode=false;
 
 
     public void setScene(Scene scene) {
@@ -53,43 +49,51 @@ public class MainController {
         ObservableList<Button> items = FXCollections.observableArrayList();
         for (String s : stringArrayList) {
             System.out.println("Přidávám do seznamu: " + s);
-            Button button = new Button(s);
-            button.setText(s);
-            if (!darkmode) {
-                button.setStyle("-fx-background-color: transparent; "
-                        + "-fx-text-fill: black; "
-                        + "-fx-padding: 0 32; "
-                        + "-fx-font-size: 14px; "
-                        + "-fx-background-radius: 3; "
-                        + "-fx-border-width: 0;");
-            } else {
-                button.setStyle("-fx-background-color: transparent; "
-                        + "-fx-text-fill: white; "
-                        + "-fx-padding: 0 32; "
-                        + "-fx-font-size: 14px; "
-                        + "-fx-background-radius: 3; "
-                        + "-fx-border-width: 0;");
-            }
-            button.setOnAction(event -> OpenFile(s));
+            Button button = getButton(s);
             items.add(button);
         }
         listView.setItems(items);
     }
 
-    public void SetRootPath() {
-        fileList = new ArrayList<>();
-        DirectoryChooser directoryChooser = new DirectoryChooser();
-        directoryChooser.setTitle("Select Folder");
-        Stage stage = new Stage();
-        File selectedDirectory = directoryChooser.showDialog(stage);
-
-        if (selectedDirectory != null) {
-            System.out.println("Selected directory: " + selectedDirectory.getAbsolutePath());
+    public Button getButton(String s) {
+        Button button = new Button(s);
+        button.setText(s);
+        button.setMnemonicParsing(false);
+        button.resize(500,100);
+        if (!darkmode) {
+            button.setStyle("-fx-background-color: transparent; "
+                    + "-fx-text-fill: black; "
+                    + "-fx-padding: 0 32; "
+                    + "-fx-font-size: 14px; "
+                    + "-fx-border-width: 0;");
+        } else {
+            button.setStyle("-fx-background-color: transparent; "
+                    + "-fx-text-fill: white; "
+                    + "-fx-padding: 0 32; "
+                    + "-fx-font-size: 14px; "
+                    + "-fx-border-width: 0;");
         }
-        assert selectedDirectory != null;
-        RootPath = selectedDirectory.getAbsolutePath();
+        button.setOnAction(event -> OpenFile(s));
+        return button;
+    }
+
+    public void SetRootPath() throws IOException {
+        fileList = new ArrayList<>();
+        if (RootPath.isEmpty()) {
+            DirectoryChooser directoryChooser = new DirectoryChooser();
+            directoryChooser.setTitle("Select Folder");
+            Stage stage = new Stage();
+            File selectedDirectory = directoryChooser.showDialog(stage);
+
+            if (selectedDirectory != null) {
+                System.out.println("Selected directory: " + selectedDirectory.getAbsolutePath());
+            }
+            assert selectedDirectory != null;
+            RootPath = selectedDirectory.getAbsolutePath();
+        }
         InsertFilesIntoList(RootPath, fileList);
         InsertIntoListView();
+        SetConfig();
     }
 
     public void Search() {
@@ -173,7 +177,7 @@ public class MainController {
         }
     }
 
-    public void SetDarkMode() {
+    public void SetDarkMode() throws IOException {
         if (scene != null) {
             scene.getStylesheets().clear();
             scene.getStylesheets().add(Objects.requireNonNull(getClass()
@@ -181,12 +185,13 @@ public class MainController {
             darkmode=true;
             if (!fileList.isEmpty() && !stringArrayList.isEmpty())
                 RefreshFiles();
+            SetConfig();
         } else {
             System.out.println("Scene is not set.");
         }
     }
 
-    public void SetLightMode() {
+    public void SetLightMode() throws IOException {
         if (scene != null) {
             scene.getStylesheets().clear();
             scene.getStylesheets().add(Objects.requireNonNull(getClass()
@@ -194,6 +199,7 @@ public class MainController {
             darkmode=false;
             if (!fileList.isEmpty() && !stringArrayList.isEmpty())
                 RefreshFiles();
+            SetConfig();
         } else {
             System.out.println("Scene is not set.");
         }
@@ -203,6 +209,12 @@ public class MainController {
         if (keyEvent.getCode().equals(KeyCode.ENTER)) {
             Search();
         }
+    }
+
+    public void SetConfig() throws IOException {
+        FileWriter fileWriter = new FileWriter("src/main/resources/search_engine/search_engine/conf.d");
+        fileWriter.write("skin=" + (darkmode ? 1 : 0) + ";path=" + (RootPath == null ? "" : RootPath) + ";");
+        fileWriter.close();
     }
 
     public void Close() {

@@ -6,8 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
-import java.util.Objects;
 
 public class MainApplication extends Application {
 
@@ -17,13 +17,13 @@ public class MainApplication extends Application {
                 .getResource("/search_engine/search_engine/Main_Layout.fxml"));
         Parent root = fxmlLoader.load();
         MainController controller = fxmlLoader.getController();
-        Scene scene = new Scene(root, 800, 800);
-        scene.getStylesheets().add(Objects.requireNonNull(getClass()
-                .getResource("/search_engine/search_engine/style_light_mode.css")).toExternalForm());
-        stage.setTitle("Search Engine");
+        Scene scene = new Scene(root, 1000, 800);
+        File conf = new File("src/main/resources/search_engine/search_engine/conf.d");
+        Config config = new Config(conf,scene);
+        controller.setScene(scene);
+        stage.setTitle("ASW-Search-Engine");
         stage.setResizable(false);
         stage.setScene(scene);
-        controller.setScene(scene);
         stage.show();
     }
 
