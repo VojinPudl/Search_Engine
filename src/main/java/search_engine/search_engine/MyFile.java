@@ -1,7 +1,5 @@
 package search_engine.search_engine;
 
-import javafx.scene.control.Button;
-
 import java.io.File;
 
 public class MyFile {

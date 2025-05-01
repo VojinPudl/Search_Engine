@@ -4,9 +4,12 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 
 public class MainApplication extends Application {
@@ -21,8 +24,12 @@ public class MainApplication extends Application {
         File conf = new File("src/main/resources/search_engine/search_engine/conf.d");
         Config config = new Config(conf,scene);
         controller.setScene(scene);
+        FileInputStream fileInputStream
+                = new FileInputStream("src/main/resources/search_engine/search_engine/ASW-SEARCH-ENGINE.png");
+        stage.getIcons().add(new Image(fileInputStream));
+        stage.initStyle(StageStyle.DECORATED);
         stage.setTitle("ASW-Search-Engine");
-        stage.setResizable(false);
+        stage.setResizable(true);
         stage.setScene(scene);
         stage.show();
     }

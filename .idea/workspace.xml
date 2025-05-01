@@ -10,11 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3863b9a-6b0a-49aa-a383-bc99581ad3ef" name="Changes" comment="Search_Engine">
-      <change afterPath="$PROJECT_DIR$/src/main/java/search_engine/search_engine/Info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/search_engine/search_engine/Info_Layout.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/search_engine/search_engine/ASW-SEARCH-ENGINE.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/search_engine/search_engine/AzamiFeet.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/search_engine/search_engine/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/search_engine/search_engine/MainApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/search_engine/search_engine/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/search_engine/search_engine/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/search_engine/search_engine/MyFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/search_engine/search_engine/MyFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/search_engine/search_engine/Info_Layout.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/search_engine/search_engine/Info_Layout.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/search_engine/search_engine/Main_Layout.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/search_engine/search_engine/Main_Layout.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/search_engine/search_engine/conf.d" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/search_engine/search_engine/conf.d" afterDir="false" />
     </list>

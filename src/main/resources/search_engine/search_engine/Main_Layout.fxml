@@ -3,13 +3,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="search_engine.search_engine.MainController">
-    <BorderPane prefHeight="800.0" prefWidth="1200.0">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="search_engine.search_engine.MainController">
+    <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <top>
-            <VBox BorderPane.alignment="CENTER">
+            <VBox>
                 <MenuBar>
                     <Menu mnemonicParsing="false" text="File">
-                        <MenuItem fx:id="setRootPathItem" mnemonicParsing="false" onAction="#SetRootPath" text="Set Root Patch" />
+                        <MenuItem fx:id="setRootPathItem" mnemonicParsing="false" onAction="#SetRootPath" text="Set Root Path" />
+                        <MenuItem fx:id="ResetPathItem" mnemonicParsing="false" onAction="#ResetPath" text="Reset Path" />
                         <MenuItem fx:id="refreshItem" mnemonicParsing="false" onAction="#RefreshFiles" text="Refresh" />
                         <MenuItem mnemonicParsing="false" onAction="#Close" text="Close" />
                     </Menu>
@@ -22,15 +23,15 @@
                     </Menu>
                 </MenuBar>
                 <ToolBar>
-                    <TextField fx:id="searchTextField" onKeyPressed="#SearchDynamically" prefHeight="25.0" prefWidth="266.0" />
-                    <Button fx:id="searchButton" mnemonicParsing="false" onAction="#Search" text="Search" />
+                    <TextField fx:id="searchTextField" onKeyReleased="#SearchDynamically" prefWidth="200.0" />
+                    <Button fx:id="searchButton" mnemonicParsing="false" onAction="#Search" text="Search" prefWidth="80.0" />
                 </ToolBar>
             </VBox>
         </top>
         <center>
-            <HBox BorderPane.alignment="CENTER">
-                <ListView fx:id="listView" pickOnBounds="false" prefHeight="740.0" prefWidth="388.0" />
-                <TextArea fx:id="TextArea" editable="false" prefHeight="740.0" prefWidth="841.0" styleClass="text-area" wrapText="true" />
+            <HBox BorderPane.alignment="CENTER" spacing="10.0">
+                <ListView fx:id="listView" pickOnBounds="false" prefWidth="300.0" VBox.vgrow="ALWAYS" />
+                <TextArea fx:id="TextArea" editable="false" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" styleClass="text-area" wrapText="true" />
             </HBox>
         </center>
     </BorderPane>

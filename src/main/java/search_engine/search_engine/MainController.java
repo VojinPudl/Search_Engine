@@ -2,7 +2,6 @@ package search_engine.search_engine;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -10,17 +9,20 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Objects;
 
 public class MainController {
     public static String RootPath = "";
+    public static boolean darkmode = false;
     public MenuItem setRootPathItem;
     public Button searchButton;
     public TextField searchTextField;
@@ -30,18 +32,14 @@ public class MainController {
     public MenuItem darkmodeItem;
     public MenuItem lightmodeItem;
     public MenuItem buttonShowInfo;
-
+    public MenuItem ResetPathItem;
     ArrayList<MyFile> fileList = new ArrayList<>();
     ArrayList<String> stringArrayList = new ArrayList<>();
-
     private Scene scene;
 
     public MainController() {
         listView = new ListView<>();
     }
-
-    public static boolean darkmode=false;
-
 
     public void setScene(Scene scene) {
         this.scene = scene;
@@ -62,7 +60,7 @@ public class MainController {
         Button button = new Button(s);
         button.setText(s);
         button.setMnemonicParsing(false);
-        button.resize(500,100);
+        button.resize(500, 100);
         if (!darkmode) {
             button.setStyle("-fx-background-color: transparent; "
                     + "-fx-text-fill: black; "
@@ -82,6 +80,7 @@ public class MainController {
 
     public void SetRootPath() throws IOException {
         fileList = new ArrayList<>();
+        stringArrayList = new ArrayList<>();
         if (RootPath.isEmpty()) {
             DirectoryChooser directoryChooser = new DirectoryChooser();
             directoryChooser.setTitle("Select Folder");
@@ -101,7 +100,10 @@ public class MainController {
 
     public void Search() {
         TextArea.setText("");
-
+        if (searchTextField.getText().isEmpty()) {
+            RefreshFiles();
+            return;
+        }
         for (MyFile file : fileList) {
             if (Objects.equals(searchTextField.getText(), "")) break;
             try (BufferedReader fileReader = new BufferedReader(new FileReader(String.valueOf(file.getFile())))) {
@@ -185,7 +187,7 @@ public class MainController {
             scene.getStylesheets().clear();
             scene.getStylesheets().add(Objects.requireNonNull(getClass()
                     .getResource("/search_engine/search_engine/style_dark_mode.css")).toExternalForm());
-            darkmode=true;
+            darkmode = true;
             if (!fileList.isEmpty() && !stringArrayList.isEmpty())
                 RefreshFiles();
             SetConfig();
@@ -199,7 +201,7 @@ public class MainController {
             scene.getStylesheets().clear();
             scene.getStylesheets().add(Objects.requireNonNull(getClass()
                     .getResource("/search_engine/search_engine/style_light_mode.css")).toExternalForm());
-            darkmode=false;
+            darkmode = false;
             if (!fileList.isEmpty() && !stringArrayList.isEmpty())
                 RefreshFiles();
             SetConfig();
@@ -212,7 +214,7 @@ public class MainController {
         if (keyEvent.getCode().equals(KeyCode.ENTER)) {
             Search();
         }
-        while (stringArrayList.contains(searchTextField.getText())){
+        while (stringArrayList.contains(searchTextField.getText())) {
             listView.setItems(null);
             ObservableList<Button> items = FXCollections.observableArrayList();
             for (String s : stringArrayList) {
@@ -237,38 +239,43 @@ public class MainController {
     }
 
     public void SearchDynamically(KeyEvent keyEvent) {
-        SearchPressedEnter(keyEvent);
-        if(searchTextField.getText().isEmpty()){
+        if (keyEvent.getCode().equals(KeyCode.ENTER)) {
+            SearchPressedEnter(keyEvent);
+        }
+        if (searchTextField.getText().isEmpty()) {
             RefreshFiles();
+            return;
         }
-        while (stringArrayList.contains(searchTextField.getText())){
-            listView.setItems(null);
-            ObservableList<Button> items = FXCollections.observableArrayList();
-            for (String s : stringArrayList) {
-                if (s.contains(searchTextField.getText())) {
-                    Button button = getButton(s);
-                    items.add(button);
-                }
+        ObservableList<Button> items = FXCollections.observableArrayList();
+        for (String s : stringArrayList) {
+            if (s.toLowerCase().contains(searchTextField.getText().toLowerCase())) {
+                Button button = getButton(s);
+                items.add(button);
             }
-            listView.setItems(items);
-            InsertIntoListView();
         }
+        listView.setItems(items);
     }
 
-    public void ShowInfo() throws IOException {
-        Stage stage = new Stage();
+    public void ShowInfo() throws IOException, URISyntaxException {
+        Stage infoStage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class
                 .getResource("/search_engine/search_engine/Info_Layout.fxml"));
         Parent root = fxmlLoader.load();
-        MainController controller = fxmlLoader.getController();
-        Scene scene = new Scene(root, 1200, 800);
-        File conf = new File("src/main/resources/search_engine/search_engine/conf.d");
-        Config config = new Config(conf,scene);
-        controller.setScene(scene);
-        stage.setTitle("ASW-Search-Engine");
-        stage.setResizable(false);
-        stage.setScene(scene);
-        stage.show();
+        Scene scene = new Scene(root, 600, 400);
+        File conf = new File(Objects.requireNonNull(MainApplication.class
+                .getResource("/search_engine/search_engine/conf.d")).toURI());
+        Config config = new Config(conf, scene);
+        FileInputStream fileInputStream
+                = new FileInputStream("src/main/resources/search_engine/search_engine/ASW-SEARCH-ENGINE.png");
+        infoStage.getIcons().add(new Image(fileInputStream));
+        infoStage.setTitle("ASW-Search-Engine");
+        infoStage.setResizable(false);
+        infoStage.setScene(scene);
+        infoStage.show();
+    }
 
+    public void ResetPath() throws IOException {
+        RootPath = "";
+        SetRootPath();
     }
 }

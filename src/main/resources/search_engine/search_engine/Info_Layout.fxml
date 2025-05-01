@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="search_engine.search_engine.InfoLayout"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="search_engine.search_engine.Info">
+    <BorderPane prefHeight="400.0" prefWidth="600.0">
+        <top>
+            <ImageView fitHeight="347.0" fitWidth="602.0" pickOnBounds="true" preserveRatio="true"
+                       BorderPane.alignment="CENTER">
+                <Image url="@AzamiFeet.png"/>
+            </ImageView>
+        </top>
+        <bottom>
+          <Label alignment="CENTER" prefHeight="52.0" prefWidth="602.0" text="Made by Tommy Pudl" BorderPane.alignment="CENTER">
+              <font>
+                  <Font size="24.0" />
+              </font>
+          </Label>
+        </bottom>
+    </BorderPane>
 </AnchorPane>
