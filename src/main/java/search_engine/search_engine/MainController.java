@@ -2,6 +2,9 @@ package search_engine.search_engine;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
@@ -26,7 +29,7 @@ public class MainController {
     public MenuItem refreshItem;
     public MenuItem darkmodeItem;
     public MenuItem lightmodeItem;
-    public MenuItem buttonShowFullFile;
+    public MenuItem buttonShowInfo;
 
     ArrayList<MyFile> fileList = new ArrayList<>();
     ArrayList<String> stringArrayList = new ArrayList<>();
@@ -209,6 +212,18 @@ public class MainController {
         if (keyEvent.getCode().equals(KeyCode.ENTER)) {
             Search();
         }
+        while (stringArrayList.contains(searchTextField.getText())){
+            listView.setItems(null);
+            ObservableList<Button> items = FXCollections.observableArrayList();
+            for (String s : stringArrayList) {
+                if (s.contains(searchTextField.getText())) {
+                    Button button = getButton(s);
+                    items.add(button);
+                }
+            }
+            listView.setItems(items);
+            InsertIntoListView();
+        }
     }
 
     public void SetConfig() throws IOException {
@@ -221,10 +236,39 @@ public class MainController {
         System.exit(0);
     }
 
-    public void ShowFullFile() {
-    }
-
     public void SearchDynamically(KeyEvent keyEvent) {
         SearchPressedEnter(keyEvent);
+        if(searchTextField.getText().isEmpty()){
+            RefreshFiles();
+        }
+        while (stringArrayList.contains(searchTextField.getText())){
+            listView.setItems(null);
+            ObservableList<Button> items = FXCollections.observableArrayList();
+            for (String s : stringArrayList) {
+                if (s.contains(searchTextField.getText())) {
+                    Button button = getButton(s);
+                    items.add(button);
+                }
+            }
+            listView.setItems(items);
+            InsertIntoListView();
+        }
+    }
+
+    public void ShowInfo() throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class
+                .getResource("/search_engine/search_engine/Info_Layout.fxml"));
+        Parent root = fxmlLoader.load();
+        MainController controller = fxmlLoader.getController();
+        Scene scene = new Scene(root, 1200, 800);
+        File conf = new File("src/main/resources/search_engine/search_engine/conf.d");
+        Config config = new Config(conf,scene);
+        controller.setScene(scene);
+        stage.setTitle("ASW-Search-Engine");
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
+
     }
 }

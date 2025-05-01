@@ -10,8 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3863b9a-6b0a-49aa-a383-bc99581ad3ef" name="Changes" comment="Search_Engine">
+      <change afterPath="$PROJECT_DIR$/src/main/java/search_engine/search_engine/Info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/search_engine/search_engine/Info_Layout.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/search_engine/search_engine/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/search_engine/search_engine/Config.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/search_engine/search_engine/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/search_engine/search_engine/MainApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/search_engine/search_engine/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/search_engine/search_engine/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/search_engine/search_engine/Main_Layout.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/search_engine/search_engine/Main_Layout.fxml" afterDir="false" />
@@ -25,13 +26,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -80,7 +81,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Starting_App" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="C:\Program Files\BellSoft\LibericaJDK-21-Full" />
+      <option name="ALTERNATIVE_JRE_PATH" value="liberica-21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="search_engine.search_engine.MainApplication" />
       <module name="Search_Engine" />
@@ -146,31 +147,7 @@
       <option name="project" value="LOCAL" />
       <updated>1741018333966</updated>
     </task>
-    <task id="LOCAL-00007" summary="Search_Engine">
-      <option name="closed" value="true" />
-      <created>1745171523970</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1745171523970</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Search_Engine">
-      <option name="closed" value="true" />
-      <created>1745171929100</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1745171929100</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Search_Engine">
-      <option name="closed" value="true" />
-      <created>1745172027074</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1745172027074</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

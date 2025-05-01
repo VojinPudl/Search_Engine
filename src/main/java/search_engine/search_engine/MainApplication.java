@@ -17,7 +17,7 @@ public class MainApplication extends Application {
                 .getResource("/search_engine/search_engine/Main_Layout.fxml"));
         Parent root = fxmlLoader.load();
         MainController controller = fxmlLoader.getController();
-        Scene scene = new Scene(root, 1000, 800);
+        Scene scene = new Scene(root, 1200, 800);
         File conf = new File("src/main/resources/search_engine/search_engine/conf.d");
         Config config = new Config(conf,scene);
         controller.setScene(scene);
