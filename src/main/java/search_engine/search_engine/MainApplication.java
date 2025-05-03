@@ -8,25 +8,25 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class MainApplication extends Application {
-
     @Override
     public void start(Stage stage) throws IOException {
+        MainController.initConfig();
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class
                 .getResource("/search_engine/search_engine/Main_Layout.fxml"));
         Parent root = fxmlLoader.load();
         MainController controller = fxmlLoader.getController();
         Scene scene = new Scene(root, 1200, 800);
-        File conf = new File("src/main/resources/search_engine/search_engine/conf.d");
-        Config config = new Config(conf,scene);
+        Config config = new Config(MainController.CONFIG_PATH.toFile(), scene);
         controller.setScene(scene);
-        FileInputStream fileInputStream
-                = new FileInputStream("src/main/resources/search_engine/search_engine/ASW-SEARCH-ENGINE.png");
-        stage.getIcons().add(new Image(fileInputStream));
+        try (InputStream input = MainApplication.class.getResourceAsStream("/search_engine/search_engine/ASW-SEARCH-ENGINE.png")) {
+            if (input != null) {
+                stage.getIcons().add(new Image(input));
+            }
+        }
         stage.initStyle(StageStyle.DECORATED);
         stage.setTitle("ASW-Search-Engine");
         stage.setResizable(true);

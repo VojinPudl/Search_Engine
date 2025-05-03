@@ -16,7 +16,9 @@ import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 
 import java.io.*;
-import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -36,6 +38,7 @@ public class MainController {
     ArrayList<MyFile> fileList = new ArrayList<>();
     ArrayList<String> stringArrayList = new ArrayList<>();
     private Scene scene;
+    public static final Path CONFIG_PATH = getConfigPath();
 
     public MainController() {
         listView = new ListView<>();
@@ -43,6 +46,39 @@ public class MainController {
 
     public void setScene(Scene scene) {
         this.scene = scene;
+    }
+
+    private static Path getConfigPath() {
+        String userHome = System.getProperty("user.home");
+        String appName = "ASW-Search-Engine";
+        String os = System.getProperty("os.name").toLowerCase();
+        Path configDir;
+
+        if (os.contains("win")) {
+            configDir = Paths.get(System.getenv("APPDATA"), appName);
+        } else {
+            configDir = Paths.get(userHome, ".config", appName.toLowerCase());
+        }
+
+        try {
+            Files.createDirectories(configDir);
+        } catch (IOException e) {
+            throw new RuntimeException("Nelze vytvořit konfigurační adresář: " + configDir, e);
+        }
+
+        return configDir.resolve("conf.d");
+    }
+
+    public static void initConfig() throws IOException {
+        if (!Files.exists(CONFIG_PATH)) {
+            InputStream defaultConfig = MainApplication.class.getResourceAsStream("/search_engine/search_engine/conf.d");
+            if (defaultConfig != null) {
+                Files.copy(defaultConfig, CONFIG_PATH);
+                defaultConfig.close();
+            } else {
+                Files.createFile(CONFIG_PATH);
+            }
+        }
     }
 
     public void InsertIntoListView() {
@@ -89,9 +125,8 @@ public class MainController {
 
             if (selectedDirectory != null) {
                 System.out.println("Selected directory: " + selectedDirectory.getAbsolutePath());
+                RootPath = selectedDirectory.getAbsolutePath();
             }
-            assert selectedDirectory != null;
-            RootPath = selectedDirectory.getAbsolutePath();
         }
         InsertFilesIntoList(RootPath, fileList);
         InsertIntoListView();
@@ -144,7 +179,6 @@ public class MainController {
                 }
             }
         } else System.out.println("Zadaná cesta neexistuje nebo není adresář.");
-
     }
 
     public void RefreshFiles() {
@@ -163,7 +197,6 @@ public class MainController {
             if (fileList.get(i).getFile().getName().equals(name))
                 break;
         }
-        System.out.println();
         MyFile file = fileList.get(index);
         try (BufferedReader fileReader = new BufferedReader(new FileReader(file.getFile()))) {
             String line;
@@ -172,9 +205,8 @@ public class MainController {
                 stringBuilder.append(line).append("\n");
                 System.out.println(line);
             }
-            System.out.println();
             TextArea.appendText("---------------------------------------------" + "\n");
-            TextArea.appendText(file.file.getName() + "\n");
+            TextArea.appendText(file.getFile().getName() + "\n");
             TextArea.appendText("---------------------------------------------" + "\n");
             TextArea.appendText(String.valueOf(stringBuilder));
         } catch (IOException e) {
@@ -229,9 +261,9 @@ public class MainController {
     }
 
     public void SetConfig() throws IOException {
-        FileWriter fileWriter = new FileWriter("src/main/resources/search_engine/search_engine/conf.d");
-        fileWriter.write("skin=" + (darkmode ? 1 : 0) + ";path=" + (RootPath == null ? "" : RootPath) + ";");
-        fileWriter.close();
+        try (FileWriter fileWriter = new FileWriter(CONFIG_PATH.toFile())) {
+            fileWriter.write("skin=" + (darkmode ? 1 : 0) + ";path=" + (RootPath == null ? "" : RootPath) + ";");
+        }
     }
 
     public void Close() {
@@ -256,18 +288,19 @@ public class MainController {
         listView.setItems(items);
     }
 
-    public void ShowInfo() throws IOException, URISyntaxException {
+    public void ShowInfo() throws IOException {
         Stage infoStage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class
                 .getResource("/search_engine/search_engine/Info_Layout.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root, 600, 400);
-        File conf = new File(Objects.requireNonNull(MainApplication.class
-                .getResource("/search_engine/search_engine/conf.d")).toURI());
-        Config config = new Config(conf, scene);
-        FileInputStream fileInputStream
-                = new FileInputStream("src/main/resources/search_engine/search_engine/ASW-SEARCH-ENGINE.png");
-        infoStage.getIcons().add(new Image(fileInputStream));
+        Config config = new Config(CONFIG_PATH.toFile(), scene);
+        try (InputStream iconStream = MainApplication.class
+                .getResourceAsStream("/search_engine/search_engine/ASW-SEARCH-ENGINE.png")) {
+            if (iconStream != null) {
+                infoStage.getIcons().add(new Image(iconStream));
+            }
+        }
         infoStage.setTitle("ASW-Search-Engine");
         infoStage.setResizable(false);
         infoStage.setScene(scene);
