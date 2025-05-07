@@ -157,6 +157,7 @@ public class MainController {
     public void OpenFile(String name) {
         searchTextField.setText(null);
         TextArea.clear();
+        RefreshFiles();
         int index = 0;
         for (int i = 0; i < fileList.size(); i++) {
             index = i;
@@ -225,6 +226,7 @@ public class MainController {
             }
             listView.setItems(items);
             InsertIntoListView();
+            RefreshFiles();
         }
     }
 

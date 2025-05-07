@@ -1,1 +1,1 @@
-skin=1;path=C:\Users\sarik\OneDrive\Plocha\Test;
+skin=1;path=C:\WORK\Uzitecne_prikazy;

@@ -10,14 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3863b9a-6b0a-49aa-a383-bc99581ad3ef" name="Changes" comment="Search_Engine">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/search_engine/search_engine/ASW-SEARCH-ENGINE.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/search_engine/search_engine/AzamiFeet.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Search_Engine_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Search_Engine_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/search_engine/search_engine/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/search_engine/search_engine/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Search_Engine_jar/Search_Engine.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Search_Engine_jar/Search_Engine.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/search_engine/search_engine/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/search_engine/search_engine/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/search_engine/search_engine/MyFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/search_engine/search_engine/MyFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/search_engine/search_engine/Info_Layout.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/search_engine/search_engine/Info_Layout.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/search_engine/search_engine/Main_Layout.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/search_engine/search_engine/Main_Layout.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/search_engine/search_engine/conf.d" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/search_engine/search_engine/conf.d" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +68,7 @@
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/sarik/IdeaProjects/Search_Engine/src/main/resources/search_engine/search_engine&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.4647399&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
